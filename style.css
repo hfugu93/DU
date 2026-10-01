@@ -1,0 +1,830 @@
+/* ==========================================================================
+   ASPDC - Apex State Polytechnic & Degree College
+   एपेक्स स्टेट पॉलिटेक्निक एवं डिग्री कॉलेज
+   Indian Academic Design System & Theme Stylesheet
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Variables & Theme Definitions (Indian Academic Navy & Kesar Gold)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colors - Light Theme (Regal Indian University Ivory & Navy) */
+  --bg-primary: #fbf9f5; /* Warm Indian campus ivory */
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-secondary: #f4efe6;
+  --bg-translucent: rgba(255, 255, 255, 0.94);
+  --border-color: #e5ded3;
+  --border-focus: #c25e00;
+
+  /* Typography */
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --text-inverse: #ffffff;
+
+  /* Regal Indian Academic Palette */
+  --primary: #002b5b; /* Imperial Indian University Navy */
+  --primary-light: #0d47a1;
+  --primary-dark: #001a35;
+  --primary-glow: rgba(0, 43, 91, 0.15);
+
+  --maroon: #800020; /* Royal Vedic Maroon */
+  --maroon-light: #9e1b32;
+  --maroon-glow: rgba(128, 0, 32, 0.15);
+
+  --kesar: #e65100; /* Auspicious Indian Saffron / Kesar */
+  --kesar-light: #ff8f00;
+  --kesar-gold: #d97706;
+  --kesar-glow: rgba(230, 81, 0, 0.18);
+
+  --india-green: #138808; /* National Green */
+  --india-green-bg: #e8f5e9;
+
+  /* Badges & Feedback */
+  --success: #138808;
+  --success-bg: #e8f5e9;
+  --warning: #e65100;
+  --warning-bg: #fff3e0;
+  --danger: #b71c1c;
+  --danger-bg: #ffebee;
+  --info: #0d47a1;
+  --info-bg: #e3f2fd;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 10px rgba(0, 43, 91, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 20px rgba(0, 43, 91, 0.1), 0 3px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 30px rgba(0, 43, 91, 0.14), 0 5px 12px rgba(0, 0, 0, 0.06);
+  --shadow-glow: 0 0 25px rgba(230, 81, 0, 0.35);
+
+  /* Layout & Geometry */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+  --container-max: 1280px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Dark Mode Overrides (Regal Midnight Indian Navy & Saffron Gold)
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] {
+  --bg-primary: #070e1b;
+  --bg-surface: #0f1c30;
+  --bg-surface-elevated: #162640;
+  --bg-surface-secondary: #132035;
+  --bg-translucent: rgba(15, 28, 48, 0.94);
+  --border-color: #243854;
+  --border-focus: #ff9800;
+
+  --text-primary: #f7fafc;
+  --text-secondary: #cbd5e0;
+  --text-muted: #a0aec0;
+  --text-inverse: #070e1b;
+
+  --primary: #3182ce;
+  --primary-light: #63b3ed;
+  --primary-dark: #1a365d;
+  --primary-glow: rgba(99, 179, 237, 0.2);
+
+  --maroon: #c53030;
+  --maroon-light: #e53e3e;
+
+  --kesar: #ff9800;
+  --kesar-light: #ffb74d;
+  --kesar-gold: #f6ad55;
+  --kesar-glow: rgba(255, 152, 0, 0.25);
+
+  --success: #38a169;
+  --success-bg: rgba(56, 161, 105, 0.18);
+  --warning-bg: rgba(237, 137, 54, 0.18);
+  --danger-bg: rgba(229, 62, 62, 0.18);
+  --info-bg: rgba(49, 130, 206, 0.18);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 20px 35px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 30px rgba(255, 152, 0, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Typography
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Devanagari Sangam MN', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.65;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   3. Tricolor Patriotic Ribbon & Indian Top Bar
+   -------------------------------------------------------------------------- */
+.tricolor-ribbon {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, #ff9933 0%, #ff9933 33.3%, #ffffff 33.3%, #ffffff 66.6%, #138808 66.6%, #138808 100%);
+}
+
+.top-notice-bar {
+  background: #001f3f; /* Deep Oxford University Blue */
+  color: #e2e8f0;
+  font-size: 0.82rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-notice-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.top-notice-ticker {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex: 1;
+  min-width: 280px;
+}
+
+.ticker-badge {
+  background: var(--kesar);
+  color: #ffffff;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.top-notice-text {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.top-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.top-link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #cbd5e0;
+  transition: color var(--transition-fast);
+}
+
+.top-link-item:hover {
+  color: #ffb74d;
+}
+
+/* Anti Ragging UGC Badge */
+.anti-ragging-pill {
+  background: rgba(220, 38, 38, 0.2);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+  padding: 0.1rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Main Institutional Header
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--bg-translucent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 2px solid var(--border-color);
+  transition: all var(--transition-normal);
+}
+
+.site-header.scrolled {
+  box-shadow: var(--shadow-md);
+  padding: 0.25rem 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 82px;
+  gap: 1.5rem;
+}
+
+.brand-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+/* Classical Indian Academic Crest */
+.brand-crest {
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(135deg, #002b5b 0%, #800020 100%);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 43, 91, 0.35);
+  border: 2.5px solid #d97706;
+  position: relative;
+  text-align: center;
+}
+
+.brand-crest i {
+  font-size: 1.3rem;
+  color: #fcd34d;
+}
+
+.brand-crest span {
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #fff;
+  margin-top: -2px;
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-hindi-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--kesar);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.brand-name {
+  font-size: 1.32rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.15;
+}
+
+.brand-tagline {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+.nav-link {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 0.5rem 0.55rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--kesar);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0.55rem;
+  right: 0.55rem;
+  height: 2.5px;
+  background: var(--kesar);
+  border-radius: var(--radius-full);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* Theme Switcher Button */
+.theme-toggle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--kesar);
+  color: var(--kesar);
+  transform: rotate(15deg);
+}
+
+/* Mobile Toggle Hamburger */
+.mobile-menu-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   5. Buttons (Indian Academic Styling)
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-weight: 700;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  font-size: 0.94rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #002b5b 0%, #0d47a1 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 43, 91, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 43, 91, 0.4);
+  filter: brightness(1.08);
+}
+
+.btn-kesar {
+  background: linear-gradient(135deg, #e65100 0%, #ff8f00 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(230, 81, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btn-kesar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 81, 0, 0.45);
+  filter: brightness(1.08);
+}
+
+.btn-maroon {
+  background: linear-gradient(135deg, #800020 0%, #a01030 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(128, 0, 32, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-maroon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(128, 0, 32, 0.45);
+}
+
+.btn-secondary {
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-surface-secondary);
+  border-color: var(--kesar);
+  color: var(--kesar);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 0.45rem 0.95rem;
+  font-size: 0.84rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+  padding: 0.95rem 1.85rem;
+  font-size: 1.02rem;
+  border-radius: var(--radius-md);
+}
+
+/* --------------------------------------------------------------------------
+   6. Badges & Filter Tabs
+   -------------------------------------------------------------------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.22rem 0.6rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.badge-primary {
+  background: var(--primary-glow);
+  color: var(--primary);
+  border: 1px solid rgba(0, 43, 91, 0.25);
+}
+
+.badge-kesar {
+  background: var(--warning-bg);
+  color: var(--kesar);
+  border: 1px solid rgba(230, 81, 0, 0.3);
+}
+
+.badge-maroon {
+  background: var(--maroon-glow);
+  color: var(--maroon);
+  border: 1px solid rgba(128, 0, 32, 0.25);
+}
+
+.badge-urgent {
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid rgba(183, 28, 28, 0.3);
+}
+
+.badge-success {
+  background: var(--success-bg);
+  color: var(--success);
+  border: 1px solid rgba(19, 136, 8, 0.3);
+}
+
+/* Filter Tab Pills */
+.filter-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-btn:hover {
+  border-color: var(--kesar);
+  color: var(--kesar);
+  transform: translateY(-1px);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #002b5b 0%, #0d47a1 100%);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(0, 43, 91, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   7. Containers & Section Titles
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.section {
+  padding: 5.5rem 0;
+  position: relative;
+}
+
+.section-title-wrap {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.95rem;
+  background: var(--warning-bg);
+  color: var(--kesar);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.85rem;
+  border: 1px solid rgba(230, 81, 0, 0.25);
+}
+
+.section-title {
+  font-size: clamp(2rem, 3.4vw, 2.65rem);
+  font-weight: 800;
+  margin-bottom: 0.85rem;
+  color: var(--text-primary);
+}
+
+.section-title span.highlight {
+  color: var(--kesar);
+  border-bottom: 3px solid #ff9933;
+}
+
+.section-desc {
+  font-size: 1.08rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   8. Modals & Dialogs
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 20, 35, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-container {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 820px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+  transform: scale(0.94) translateY(20px);
+  transition: transform var(--transition-normal);
+  position: relative;
+}
+
+.modal-overlay.active .modal-container {
+  transform: scale(1) translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.85rem;
+  border-bottom: 2px solid var(--border-color);
+  background: var(--bg-surface-secondary);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.modal-close-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background: var(--danger-bg);
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. Footer (Indian Institutional Style)
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: #001933; /* Deep Indian University Navy */
+  color: #cbd5e0;
+  padding: 5rem 0 2rem 0;
+  border-top: 4px solid var(--kesar);
+  position: relative;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+  gap: 2.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-col-title {
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+  position: relative;
+  border-left: 3px solid var(--kesar);
+  padding-left: 0.6rem;
+}
+
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-links-list a {
+  color: #a0aec0;
+  font-size: 0.88rem;
+  transition: all var(--transition-fast);
+}
+
+.footer-links-list a:hover {
+  color: #ffb74d;
+  padding-left: 4px;
+}
+
+.footer-bottom {
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.84rem;
+}
+
+.accred-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   10. Responsiveness
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-surface);
+    border-bottom: 2px solid var(--border-color);
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    box-shadow: var(--shadow-xl);
+  }
+  .nav-menu.mobile-open {
+    display: flex;
+  }
+  .mobile-menu-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3.5rem 0;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .top-notice-bar {
+    display: none;
+  }
+}
